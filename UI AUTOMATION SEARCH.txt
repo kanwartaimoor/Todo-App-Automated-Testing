@@ -1,0 +1,56 @@
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class SampleTest {
+
+  private AndroidDriver driver;
+
+  @Before
+  public void setUp() throws MalformedURLException {
+    DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    desiredCapabilities.setCapability("platformName", "Android");
+    desiredCapabilities.setCapability("platformVersion", "9.0");
+    desiredCapabilities.setCapability("deviceName", "OnePlus 5T");
+    desiredCapabilities.setCapability("automationName", "UiAutomator2");
+    desiredCapabilities.setCapability("appPackage", "com.example.a1db");
+    desiredCapabilities.setCapability("appActivity", "com.example.a1db.note_list_item");
+
+    URL remoteUrl = new URL("http://0.0.0.0:4723/wd/hub");
+
+    driver = new AndroidDriver(remoteUrl, desiredCapabilities);
+  }
+
+  @Test
+  public void sampleTest() {
+    MobileElement el1 = (MobileElement) driver.findElementByAccessibilityId("More options");
+    el1.click();
+    MobileElement el2 = (MobileElement) driver.findElementById("com.example.a1db:id/content");
+    el2.click();
+    MobileElement el3 = (MobileElement) driver.findElementById("com.example.a1db:id/todo");
+    el3.sendKeys("test");
+    MobileElement el4 = (MobileElement) driver.findElementById("com.example.a1db:id/descrip");
+    el4.sendKeys("test des");
+    MobileElement el5 = (MobileElement) driver.findElementById("com.example.a1db:id/save");
+    el5.click();
+    MobileElement el6 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.EditText");
+    el6.sendKeys("as");
+    MobileElement el7 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.EditText");
+    el7.sendKeys("t");
+    MobileElement el8 = (MobileElement) driver.findElementById("com.example.a1db:id/clayout");
+    el8.click();
+    MobileElement el9 = (MobileElement) driver.findElementById("com.example.a1db:id/update");
+    el9.click();
+  }
+
+  @After
+  public void tearDown() {
+    driver.quit();
+  }
+}

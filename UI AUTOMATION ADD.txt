@@ -1,0 +1,86 @@
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class SampleTest {
+
+  private AndroidDriver driver;
+
+  @Before
+  public void setUp() throws MalformedURLException {
+    DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    desiredCapabilities.setCapability("platformName", "Android");
+    desiredCapabilities.setCapability("platformVersion", "9.0");
+    desiredCapabilities.setCapability("deviceName", "OnePlus 5T");
+    desiredCapabilities.setCapability("automationName", "UiAutomator2");
+    desiredCapabilities.setCapability("appPackage", "com.example.a1db");
+    desiredCapabilities.setCapability("appActivity", "com.example.a1db.note_list_item");
+
+    URL remoteUrl = new URL("http://0.0.0.0:4723/wd/hub");
+
+    driver = new AndroidDriver(remoteUrl, desiredCapabilities);
+  }
+
+  @Test
+  public void sampleTest() {
+MobileElement el1 = (MobileElement) driver.findElementById("com.example.a1db:id/action_bar");
+el1.click();
+MobileElement el2 = (MobileElement) driver.findElementByAccessibilityId("More options");
+el2.click();
+MobileElement el3 = (MobileElement) driver.findElementById("com.example.a1db:id/title");
+el3.click();
+MobileElement el4 = (MobileElement) driver.findElementById("com.example.a1db:id/todo");
+el4.click();
+MobileElement el5 = (MobileElement) driver.findElementById("com.example.a1db:id/todo");
+el5.click();
+MobileElement el6 = (MobileElement) driver.findElementById("com.example.a1db:id/todo");
+el6.sendKeys("test");
+MobileElement el7 = (MobileElement) driver.findElementById("com.example.a1db:id/descrip");
+el7.click();
+el7.sendKeys("test description");
+MobileElement el8 = (MobileElement) driver.findElementById("android:id/text1");
+el8.click();
+MobileElement el9 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]");
+el9.click();
+MobileElement el10 = (MobileElement) driver.findElementById("com.example.a1db:id/calendarbutton");
+el10.click();
+MobileElement el11 = (MobileElement) driver.findElementById("android:id/button1");
+el11.click();
+MobileElement el12 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[3]");
+el12.click();
+MobileElement el13 = (MobileElement) driver.findElementById("com.example.a1db:id/button");
+el13.click();
+MobileElement el14 = (MobileElement) driver.findElementByAccessibilityId("4");
+el14.click();
+el14.click();
+MobileElement el15 = (MobileElement) driver.findElementById("android:id/button1");
+el15.click();
+MobileElement el16 = (MobileElement) driver.findElementById("com.example.a1db:id/button5");
+el16.click();
+MobileElement el17 = (MobileElement) driver.findElementById("com.example.a1db:id/ambilwarna_viewHue");
+el17.click();
+MobileElement el18 = (MobileElement) driver.findElementById("com.example.a1db:id/ambilwarna_viewSatBri");
+el18.click();
+MobileElement el19 = (MobileElement) driver.findElementById("com.example.a1db:id/ambilwarna_viewSatBri");
+el19.click();
+MobileElement el20 = (MobileElement) driver.findElementById("android:id/button1");
+el20.click();
+MobileElement el21 = (MobileElement) driver.findElementById("com.example.a1db:id/save");
+el21.click();
+
+   
+  }
+
+  @After
+  public void tearDown() {
+    driver.quit();
+  }
+}
+..........
+
