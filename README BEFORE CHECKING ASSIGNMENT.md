@@ -1,6 +1,5 @@
 # Todo
 
-1)THE MANUAL TEST CASES WERE SUBMIT ON SLACK             (ASSIGNMENT)
-2)THE RAR FILE A1DB.RAR HAS THE UPDATED UNIT TESTS       (ASSIGNMENT) 
-3)THE UIAUTOMATION FILES HAVE THE UI AUTOMATION PHASE (ASSIGNMENT)
+ST final report is our final report 
+and from tc-1 to tc-10 are all our automated testcases 
 
