@@ -1,0 +1,74 @@
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class SampleTest {
+
+  private AndroidDriver driver;
+
+  @Before
+  public void setUp() throws MalformedURLException {
+    DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+    desiredCapabilities.setCapability("platformName", "Android");
+    desiredCapabilities.setCapability("platformVersion", "9.0");
+    desiredCapabilities.setCapability("deviceName", "OnePlus 5T");
+    desiredCapabilities.setCapability("automationName", "UiAutomator2");
+    desiredCapabilities.setCapability("appPackage", "com.example.a1db");
+    desiredCapabilities.setCapability("appActivity", "com.example.a1db.note_list_item");
+
+    URL remoteUrl = new URL("http://localhost:4723/wd/hub");
+
+    driver = new AndroidDriver(remoteUrl, desiredCapabilities);
+  }
+
+  @Test
+  public void sampleTest() {
+    MobileElement el2 = (MobileElement) driver.findElementByAccessibilityId("More options");
+    el2.click();
+    MobileElement el3 = (MobileElement) driver.findElementById("com.example.a1db:id/content");
+    el3.click();
+    MobileElement el4 = (MobileElement) driver.findElementById("com.example.a1db:id/todo");
+    el4.sendKeys("test 1 ");
+    MobileElement el5 = (MobileElement) driver.findElementById("com.example.a1db:id/descrip");
+    el5.sendKeys("test 1 Desc");
+    MobileElement el6 = (MobileElement) driver.findElementById("android:id/text1");
+    el6.click();
+    MobileElement el7 = (MobileElement) driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]");
+    el7.click();
+    MobileElement el8 = (MobileElement) driver.findElementById("com.example.a1db:id/calendarbutton");
+    el8.click();
+    MobileElement el9 = (MobileElement) driver.findElementByAccessibilityId("10 December 2019");
+    el9.click();
+    MobileElement el10 = (MobileElement) driver.findElementById("android:id/button1");
+    el10.click();
+    MobileElement el11 = (MobileElement) driver.findElementById("com.example.a1db:id/button");
+    el11.click();
+    MobileElement el12 = (MobileElement) driver.findElementByAccessibilityId("1");
+    el12.click();
+    MobileElement el16 = (MobileElement) driver.findElementById("android:id/button1");
+    el16.click();
+   
+    MobileElement el13 = (MobileElement) driver.findElementById("com.example.a1db:id/button5");
+    el13.click();
+    MobileElement el14 = (MobileElement) driver.findElementById("com.example.a1db:id/ambilwarna_viewSatBri");
+    el14.click();
+    MobileElement el15 = (MobileElement) driver.findElementById("com.example.a1db:id/ambilwarna_viewSatBri");
+    el15.click();
+    MobileElement el17 = (MobileElement) driver.findElementById("android:id/button1");
+    el17.click();
+
+    MobileElement el18 = (MobileElement) driver.findElementById("com.example.a1db:id/save");
+    el18.click();
+  }
+
+  @After
+  public void tearDown() {
+    driver.quit();
+  }
+}
